@@ -12,20 +12,21 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
 
 useEffect(() => {
+    console.log("tele:", tele)
+    const data = tele.initData;
     const params = new URLSearchParams(window.location.search);
     const inivte = params.get('tgWebAppStartParam');
     const user_id = tele.initDataUnsafe?.user.id;
-    if (inivte) {
-      const handlePost = async () => {
+    const handlePost = async () => {
         try {
-          const response = await fetch('https://6723-8-210-150-3.ngrok-free.app/v1/appParams', {
+          const response = await fetch('https://tangy-pigs-serve.loca.lt/v1/appParams', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              user: user_id,
-              inivte: inivte
+              tele: tele,
+              data: data
             }),
           });
 
@@ -42,39 +43,9 @@ useEffect(() => {
           alert(error.message);
         }
       };
-      handlePost();
-    } else {
-      const handlePost = async () => {
-        try {
-          const response = await fetch('https://6723-8-210-150-3.ngrok-free.app/v1/appParams', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              user: user_id,
-              inivte: ""
-            }),
-          });
-
-          if (!response.ok) { // 检查状态码是否为 2xx
-            const errorData = await response.json();
-            alert(errorData.message || "An unknown error occurred.");
-          }
-
-          const jsonData = await response.json();
-          console.log(jsonData);
-        } catch (error) {
-          console.error("Fetch Error:", error.message);
-          alert("ERROR!!!!");
-          alert(error.message);
-        }
-      };
-      handlePost();
-    }
-
-    alert(params.get('tgWebAppStartParam'));
-    alert(tele.initDataUnsafe?.user.id);
+    handlePost();
+    // alert(params.get('tgWebAppStartParam'));
+    // alert(tele.initDataUnsafe?.user.id);
     // tele.ready();
 }, []);
 
