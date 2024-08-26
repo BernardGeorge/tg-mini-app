@@ -20,7 +20,7 @@ useEffect(() => {
     // const user_id = tele.initDataUnsafe?.user.id;
     const handlePost = async () => {
         try {
-          const response = await fetch('https://tangy-pigs-serve.loca.lt/checkData', {
+          const response = await fetch('https://fair-views-marry.loca.lt/checkData', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
