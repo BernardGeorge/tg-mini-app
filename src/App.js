@@ -12,8 +12,10 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
 
 useEffect(() => {
+    console.log("initapp:")
     console.log("tele:", tele)
     const data = tele.initData;
+    console.log("data:", data)
     const params = new URLSearchParams(window.location.search);
     const inivte = params.get('tgWebAppStartParam');
     const user_id = tele.initDataUnsafe?.user.id;
@@ -25,8 +27,7 @@ useEffect(() => {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              tele: tele,
-              data: data
+              initapp: true
             }),
           });
 
