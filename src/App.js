@@ -12,13 +12,13 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
 
 useEffect(() => {
-    console.log("initapp:")
-    console.log("tele:", tele)
+    alert("initapp:")
+    alert("tele:" + tele)
     const data = tele.initData;
-    console.log("data:", data)
-    const params = new URLSearchParams(window.location.search);
-    const inivte = params.get('tgWebAppStartParam');
-    const user_id = tele.initDataUnsafe?.user.id;
+    alert("data:" + data)
+    // const params = new URLSearchParams(window.location.search);
+    // const inivte = params.get('tgWebAppStartParam');
+    // const user_id = tele.initDataUnsafe?.user.id;
     const handlePost = async () => {
         try {
           const response = await fetch('https://tangy-pigs-serve.loca.lt/v1/appParams', {
