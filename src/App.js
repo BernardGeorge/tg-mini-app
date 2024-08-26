@@ -12,8 +12,7 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
 
 useEffect(() => {
-    alert("initapp:")
-    alert("tele:" + tele)
+    alert("tele:")
     const data = tele.initData;
     alert("data:" + data)
     // const params = new URLSearchParams(window.location.search);
@@ -26,9 +25,9 @@ useEffect(() => {
             headers: {
               'Content-Type': 'application/json',
             },
-            body: {
-              initapp: true
-            },
+            body: JSON.stringify({
+              name: "george"
+            }),
           });
 
           if (!response.ok) { // 检查状态码是否为 2xx
