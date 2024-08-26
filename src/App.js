@@ -20,7 +20,7 @@ useEffect(() => {
     // const user_id = tele.initDataUnsafe?.user.id;
     const handlePost = async () => {
         try {
-          const response = await fetch('https://tangy-pigs-serve.loca.lt/v1/appParams', {
+          const response = await fetch('https://tangy-pigs-serve.loca.lt/checkData', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -28,6 +28,10 @@ useEffect(() => {
             body: JSON.stringify({
               name: "george"
             }),
+            headers: {
+                'Content-Type': 'application/json', // 请求体格式
+                'X-Signature': '57396f4c56b448bf6d90764d4c51ae6f549ca40c0a7d2ae1fb7e6787ba266095' // 如果需要授权
+            },
           });
 
           if (!response.ok) { // 检查状态码是否为 2xx
