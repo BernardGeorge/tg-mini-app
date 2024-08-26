@@ -26,9 +26,9 @@ useEffect(() => {
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
+            body: {
               initapp: true
-            }),
+            },
           });
 
           if (!response.ok) { // 检查状态码是否为 2xx
