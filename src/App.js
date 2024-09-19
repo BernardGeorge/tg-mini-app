@@ -15,8 +15,13 @@ useEffect(() => {
     alert("tele:")
     const data = tele.initData;
     alert("data:" + data)
-    // const params = new URLSearchParams(window.location.search);
-    // const inivte = params.get('tgWebAppStartParam');
+    const params = new URLSearchParams(window.location.search);
+    
+    const inivte = params.get('tgWebAppStartParam');
+    alert("inivte:" + inivte)
+
+    const app_inivte = params.get('startapp');
+    alert("app inivte:" + app_inivte)
     // const user_id = tele.initDataUnsafe?.user.id;
     const handlePost = async () => {
         try {
